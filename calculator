@@ -1,0 +1,23 @@
+contribution_RRSP = float(input("Amount contributed to RRSP: "))
+dep_tax = float(input("Marginal tax rate upon deposit: "))
+with_tax = float(input("Marginal tax rate upon withdrawl: "))
+
+inc_left = 100 - with_tax
+cap_gains = with_tax/2
+inc_cg = 100 - cap_gains
+
+RRSP_refund = dep_tax/100 * contribution_RRSP
+RRSP_principal = contribution_RRSP + RRSP_refund
+return_rate = 8
+years = 30
+
+pretax_noRRSP = contribution_RRSP * ((1 + return_rate/100) ** years)
+pretax_RRSP = RRSP_principal * ((1 + return_rate/100) ** years)
+
+taxable_noRRSP = pretax_RRSP - contribution_RRSP
+posttax_noRRSP = RRSP_principal + (taxable_noRRSP * inc_cg/100)
+
+posttax_RRSP = inc_left/100 * pretax_RRSP
+
+print(posttax_noRRSP)
+print(posttax_RRSP)

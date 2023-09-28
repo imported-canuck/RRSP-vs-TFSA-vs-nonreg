@@ -1,23 +1,33 @@
-contribution_RRSP = float(input("Amount contributed to RRSP: "))
-dep_tax = float(input("Marginal tax rate upon deposit: "))
-with_tax = float(input("Marginal tax rate upon withdrawl: "))
+# Input section
+contribution = float(input("Amount contributed to RRSP: "))  # Amount contributed to RRSP
+dep_tax = float(input("Marginal tax rate upon deposit: "))   # Marginal tax rate upon deposit
+with_tax = float(input("Marginal tax rate upon withdrawal: "))  # Marginal tax rate upon withdrawal
 
+# Calculate after-tax income percentages
 inc_left = 100 - with_tax
-cap_gains = with_tax/2
+cap_gains = with_tax / 2
 inc_cg = 100 - cap_gains
 
-RRSP_refund = dep_tax/100 * contribution_RRSP
-RRSP_principal = contribution_RRSP + RRSP_refund
-return_rate = 8
-years = 30
+# Calculate RRSP refund and principal
+RRSP_refund = dep_tax / 100 * contribution
+RRSP_principal = contribution + RRSP_refund
 
-pretax_noRRSP = contribution_RRSP * ((1 + return_rate/100) ** years)
-pretax_RRSP = RRSP_principal * ((1 + return_rate/100) ** years)
+# Investment parameters
+return_rate = 8  # Annual return rate
+years = 30  # Number of years for investment
 
-taxable_noRRSP = pretax_RRSP - contribution_RRSP
-posttax_noRRSP = RRSP_principal + (taxable_noRRSP * inc_cg/100)
+# Calculate pre-tax values for both scenarios
+pretax_noRRSP = contribution * ((1 + return_rate / 100) ** years)
+pretax_RRSP = RRSP_principal * ((1 + return_rate / 100) ** years)
 
-posttax_RRSP = inc_left/100 * pretax_RRSP
+# Calculate taxable amount for the non-RRSP scenario
+taxable_noRRSP = pretax_RRSP - contribution
 
-print(posttax_noRRSP)
-print(posttax_RRSP)
+# Calculate post-tax values for both scenarios
+posttax_noRRSP = RRSP_principal + (taxable_noRRSP * inc_cg / 100)
+posttax_RRSP = inc_left / 100 * pretax_RRSP
+
+# Output results
+print("Post-tax value in a non-registered account: {:.2f}".format(posttax_noRRSP))
+print("Post-tax value in an RRSP account: {:.2f}".format(posttax_RRSP))
+

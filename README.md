@@ -36,6 +36,9 @@ The script will then request you to input various parameters. Input them as inst
   - This assumption affects the non-registered account, as dividends are taxed in the year they are realized, rather than upon withdrawal.
   - This assumption can be disregarded for the TFSA and RRSP, as both have no tax implications until withdrawal.
 - One-time, lump-sum contribution and withdrawal
+- RRSP refund is immediately realized and invested in an RRSP.
+  - The act of depositing money in an RRSP causes you to receive a refund, equal to your marginal tax rate multiplied by the deposited amount. Reinvesting this in the RRSP would once again yield a (smaller) refund. Thus, the terminal amount of the money deposited in an RRSP is modelled using an infinite geometric series.
+  - Alternatively, one may simply assume that the initial refund is invested in a TFSA. However, this would yield a different result than the aforementioned method if your marginal tax rate at the time of investment isn't equal to your marginal tax rate at the time of withdrawal.  
 - Marginal tax rate invariant.
   - The marginal tax rate you are subject to during the contribution and withdrawal is assumed to be constant.
   - This does not mean that the marginal tax rate you are subject to never changes throughout the life of your investment. Rather, the act of depositing money (and thus reducing your taxable income if an RRSP is used) and the act of withdrawing money (and thus increasing your taxable income if an RRSP or non-registered account is used) will not cause you to move up or down a tax bracket.

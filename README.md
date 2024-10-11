@@ -18,7 +18,6 @@ This calculator compares the after-tax future values of investments in different
   - Tax-Free Savings Accounts (TFSAs)
 - Considers tax implications during contribution, withdrawal, and investment periods.
 - Customizable contribution amounts, growth rates, and time horizons.
-- Graphical comparison of different account types over time.
 
 ## Requirements
 

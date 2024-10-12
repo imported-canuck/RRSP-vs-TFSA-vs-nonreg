@@ -26,10 +26,25 @@ This calculator compares the after-tax future values of investments in different
 
 ## Usage
 
-To run the calculator, download RRSP-TFSA-nonregcalc.py and run it in your Python IDE (I use VS Code). 
-
-The script will then request you to input various parameters. Input them as instructed and it will print the post-tax investment returns if the investment were to be held in a Registered Retirement Savings Plan (RRSP), Tax-Free Savings Account (TFSA) or a non-registered account with no particular tax advantage. 
-
+1. Clone the repository and navigate to the project directory:
+   ```bash
+   git clone https://github.com/imported-canuck/RRSP-vs-TFSA-vs-nonreg.git
+   cd RRSP-vs-TFSA-vs-nonreg
+2. Run the main script
+   ```bash
+   python main.py
+3. You will be prompted to enter investment-related information:
+   - Amount invested
+   - Marginal tax rate upon deposit
+   - Marginal tax rate upon withdrawal
+   - Percentage of returns taxed as capital gains
+   - Annual rate of return
+   - Timeframe in years
+4. After entering the required information, the script will calculate and display the post-tax values for:
+   - Non-registered accounts
+   - TFSA accounts
+   - RRSP accounts
+     
 ## Assumptions
 
 - No dividends.
